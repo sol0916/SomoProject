@@ -13,5 +13,5 @@ public interface HBoardService {
 	List<HBoardVO> getList(HttpServletRequest request, HttpServletResponse response);
 	HBoardVO getContent(HttpServletRequest request, HttpServletResponse response);
 	void update(HttpServletRequest request, HttpServletResponse response);
-	
+	List<HBoardVO> gethnoList(HttpServletRequest request, HttpServletResponse response);
 }

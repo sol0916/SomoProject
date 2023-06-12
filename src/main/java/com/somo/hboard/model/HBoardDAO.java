@@ -182,6 +182,50 @@ public class HBoardDAO {
 			}
 		}
 	}
-
+	
+	//hno에 맞는 리스트만 조회
+	public List<HBoardVO> getHnoList(int hno) {
 		
+		List<HBoardVO> list = new ArrayList<>();
+		
+		String sql = "SELECT * FROM HBOARD WHERE HNO = ? ORDER BY BOARDNUM DESC";
+
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+
+		try {
+			conn = DriverManager.getConnection(url, uid, upw);
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+			int boardNum = rs.getInt("boardNum");
+			String memId = rs.getString("memId");
+			int hNo = rs.getInt("hNo");
+			String boWriter = rs.getString("boWriter");
+			String boTitle = rs.getString("boTitle");
+			String boContent = rs.getString("boContent");
+			int boHit = rs.getInt("boHit");
+			Timestamp boRegdate = rs.getTimestamp("boRegdate");
+			
+			HBoardVO vo = new HBoardVO(boardNum, memId, hNo, boWriter, boTitle, boContent, boHit, boRegdate);
+			
+			list.add(vo);
+			
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+				pstmt.close();
+				rs.close();
+			} catch (Exception e2) {
+			}
+
+		}
+		return list;
+	}
 }
