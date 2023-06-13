@@ -34,24 +34,24 @@
 		
 		<tr>
 			<td colspan="4" align="center">
-				<input type="button" value="목록" onclick="location.href='hboard_list.hboard'">&nbsp;&nbsp;
-				<input type="button" value="수정" onclick="location.href='hboard_modify.hboard?boardNum=${vo.boardNum}'">&nbsp;&nbsp;
-				<input type="button" value="삭제" onclick="location.href='hboard_delete.hboard?boardNum=${vo.boardNum}'">&nbsp;&nbsp;
+				<input type="button" value="목록" class="btn btn-dark btn-lg" onclick="location.href='hboard_list.hboard'">&nbsp;&nbsp;
+				<input type="button" value="수정" class="btn btn-dark btn-lg" onclick="location.href='hboard_modify.hboard?boardNum=${vo.boardNum}'">&nbsp;&nbsp;
+				<input type="button" value="삭제" class="btn btn-dark btn-lg" onclick="location.href='hboard_delete.hboard?boardNum=${vo.boardNum}'">&nbsp;&nbsp;
 			</td>
 		</tr>
 	 <c:if test="${rplist!=null }">
 		<c:forEach var="rp" items="${rplist }">
 			<tr>
-				<td colspan="4" align="center">
+				<td colspan="4">
 					<div class="input-group fs-5">
 						<p>${rp.rContent }</p> &nbsp;&nbsp;&nbsp;&nbsp;
-					  <button class="btn btn-outline-secondary" type="button" onclick="location.href='reply_modify.reply?rNo=${rp.rNo}&boardNum=${vo.boardNum}'">수정</button>&nbsp;&nbsp;
-					  <button class="btn btn-outline-secondary" type="button" >삭제</button>
+					  <button class="btn btn-outline-secondary btn-outline-dark btn-lg" type="button" onclick="location.href='reply_modify.reply?rNo=${rp.rNo}&boardNum=${vo.boardNum}'">수정</button>&nbsp;&nbsp;
+					  <button class="btn btn-outline-secondary btn-outline-dark btn-lg" type="button" onclick="location.href='reply_delete.reply?rNo=${rp.rNo}&boardNum=${vo.boardNum}'">삭제</button>
 					</div>
 				</td>
 			</tr>
 		</c:forEach>
-	 </c:if>
+	 </c:if> 
 		<tr>
 		 <c:choose>
 		  <c:when test="${replymodify ==null }">

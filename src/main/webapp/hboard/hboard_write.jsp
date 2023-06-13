@@ -1,17 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp" %>
-
-<div align="center" class="div_center">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<div align="center" class="div_center col-6 mx-auto fs-4">
 	<h3>게시판 글 작성 페이지</h3>
 	<hr>
 	
 	<form action="registForm.hboard" method="post">
-		<table  class ="table col-6">
+		<table  class ="table">
 			<tr>
 				<td>작성자</td>
 				<td>
-					<input type="text" name="boWriter" size="10">
+					<input type="text" name="boWriter" size="10" value="${sessionScope.user_nick }">
 				</td>
 			</tr>
 			<tr>
@@ -21,16 +21,26 @@
 				</td>
 			</tr>
 			<tr>
+				<td>취미 종류</td>
+				<td>
+					<select name="hname" class="td-select">
+						<c:forEach var = "h" items="${hblist }">
+						<option>${h.hname }</option>
+						</c:forEach>
+					</select>
+				</td>
+			</tr>
+			<tr>
 				<td>글 내용</td>
 				<td>
 					<textarea rows="10" style="width: 95%;" name="boContent"></textarea>
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2">
-					<input type="submit" value="작성 완료" onclick="">
+				<td colspan="2" align="right">
+					<input type="submit" value="작성 완료" onclick="" class="btn btn-dark btn-lg">
 					&nbsp;&nbsp;
-					<input type="button" value="글목록" onclick="location.href='hboard_list.hboard'">         
+					<input type="button" value="글목록" class="btn btn-dark btn-lg" onclick="location.href='hboard_list.hboard'">         
 				</td>
 			</tr>
 			

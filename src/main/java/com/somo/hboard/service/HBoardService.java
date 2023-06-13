@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.somo.hboard.model.HBoardVO;
+import com.somo.hobby.model.HobbyVO;
 
 public interface HBoardService {
 	
@@ -15,4 +16,5 @@ public interface HBoardService {
 	void update(HttpServletRequest request, HttpServletResponse response);
 	List<HBoardVO> gethnoList(HttpServletRequest request, HttpServletResponse response);
 	void delete(HttpServletRequest request, HttpServletResponse response);
+	List<HobbyVO> getHobby(HttpServletRequest request, HttpServletResponse response);
 }

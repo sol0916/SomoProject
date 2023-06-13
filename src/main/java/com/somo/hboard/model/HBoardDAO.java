@@ -36,23 +36,27 @@ public class HBoardDAO {
 	private String upw = "SOMO";
 
 	//글 등록하기 회원외에 등록는 작성불가
-	public void regist(String boTitle, String boContent) {
+	public void regist(HBoardVO vo) {
 
-		String sql = "insert into hboard(boardnum, botitle, bocontent) values(BOARDNUM_SEQ.NEXTVAL, ?, ?)";
-
+		String sql = "insert into hboard values (boardnum_seq.nextval, ?, ?, ?, ?, ?, 0, sysdate)";
+		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 
 		try {
 			conn = DriverManager.getConnection(url, uid, upw);
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, boTitle);
-			pstmt.setString(2, boContent);
+			pstmt.setString(1, vo.getMemId());
+			pstmt.setInt(2, vo.gethNo());
+			pstmt.setString(3, vo.getBoWriter());
+			pstmt.setString(4, vo.getBoTitle());
+			pstmt.setString(5, vo.getBoContent());
 
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("regist의 메소드 오류");
 		} finally {
 			try {
 				conn.close();

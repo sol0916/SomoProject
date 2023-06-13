@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.somo.hboard.model.HBoardVO;
 import com.somo.hboard.service.HBoardService;
 import com.somo.hboard.service.HBoardServiceImpl;
+import com.somo.hobby.model.HobbyVO;
 import com.somo.reply.model.ReplyVO;
 import com.somo.reply.service.ReplyService;
 import com.somo.reply.service.ReplyServiceImpl;
@@ -50,7 +51,8 @@ public class HBoardController extends HttpServlet {
 		
 		//1. 글쓰기 화면 처리
 		if(command.equals("/hboard/hboard_write.hboard")) {
-			
+			List<HobbyVO> list = service.getHobby(request, response);
+			request.setAttribute("hblist", list);
 			request.getRequestDispatcher("hboard_write.jsp").forward(request, response);
 	
 			//2. 목록화면에 처리
