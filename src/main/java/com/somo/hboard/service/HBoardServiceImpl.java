@@ -58,9 +58,9 @@ public class HBoardServiceImpl implements HBoardService {
 	public List<HBoardVO> gethnoList(HttpServletRequest request, HttpServletResponse response) {
 		int hno = Integer.parseInt(request.getParameter("hno"));
 		HBoardDAO dao = HBoardDAO.getInstance();
-		List<HBoardVO> vo = dao.getHnoList(hno);
+		List<HBoardVO> list = dao.getHnoList(hno);
 		
-		return vo;
+		return list;
 	}
 
 			
