@@ -264,4 +264,45 @@ public class MemberDAO {
 		return vo;
 	}
 	
+	//정보 수정하기
+	public int updateInfo(MemberVO vo) {
+		
+		int result = 0;
+		
+		String sql = "update member set memNick=?, memEmail=?, memPhone=?, memAddr=?, memBirth=?, memGender=?"
+				+"where memId=?";
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			
+			conn = DriverManager.getConnection(url, uid, upw);
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, vo.getMemNick());
+			pstmt.setString(2, vo.getMemEmail());
+			pstmt.setString(3, vo.getMemPhone());
+			pstmt.setString(4, vo.getMemAddr());
+			pstmt.setString(5, vo.getMemBirth());
+			pstmt.setString(6, vo.getMemGender());
+			pstmt.setString(7, vo.getMemId());
+			
+			result = pstmt.executeUpdate();
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+				pstmt.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		
+		
+		return result;
+	}
 }
