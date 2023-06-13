@@ -4,6 +4,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.somo.hboard.model.HBoardVO;
 
 public class MemberDAO {
 	
@@ -304,5 +309,95 @@ public class MemberDAO {
 		
 		
 		return result;
+	}
+
+	//정보 삭제 (회원 탈퇴) 
+	public int deleteInfo(String memId) {
+		
+		int result = 0;
+		
+		String sql = "delete from member where memId = ?";
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			
+			conn = DriverManager.getConnection(url, uid, upw);
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memId);
+			
+			result = pstmt.executeUpdate();
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+				pstmt.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+			
+		
+		return result;
+	}
+
+	//작성 글 보기
+	public List<HBoardVO> findMyBoard(String memId) {
+		
+		List<HBoardVO> list = new ArrayList<>();
+		
+		String sql = "select * from hboard where memId = ? order by boardnum desc";
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		
+		try {
+			
+			conn = DriverManager.getConnection(url, uid, upw);
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memId);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				int boardNum = rs.getInt("boardNum");
+				String memId2 = rs.getString("memId");
+				int hNo = rs.getInt("hNo");
+				String boWriter = rs.getString("boWriter");
+				String boTitle = rs.getString("boTitle");
+				String boContent = rs.getString("boContent");
+				int boHit = rs.getInt("boHit");
+				Timestamp boRegdate = rs.getTimestamp("boRegdate");
+				
+				HBoardVO vo = new HBoardVO(boardNum, memId2, hNo, boWriter, boTitle, boContent, boHit, boRegdate);
+				
+				list.add(vo);
+				
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+				pstmt.close();
+				rs.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		
+		
+		return list;
+		
 	}
 }

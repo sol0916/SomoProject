@@ -1,9 +1,13 @@
 package com.somo.member.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.somo.hboard.model.HBoardDAO;
+import com.somo.hboard.model.HBoardVO;
 import com.somo.member.model.MemberDAO;
 import com.somo.member.model.MemberVO;
 
@@ -114,4 +118,28 @@ public class MemberServiceImpl implements MemberService {
 		
 		return result;
 	}
+
+	//회원 탈퇴
+	@Override
+	public int deleteInfo(HttpServletRequest request, HttpServletResponse response) {
+
+		String memId = (String)request.getSession().getAttribute("user_id");
+
+		MemberDAO dao = MemberDAO.getInstance();
+		int result = dao.deleteInfo(memId);
+				
+		return result;
+	}
+	
+	//작성 글 목록
+	@Override
+	public List<HBoardVO> findMyBoard(HttpServletRequest request, HttpServletResponse response) {
+		
+		MemberDAO dao = MemberDAO.getInstance();
+		String memId = (String)request.getSession().getAttribute("user_id");
+		List<HBoardVO> list = dao.findMyBoard(memId);
+					
+		return list;
+	}
+	
 }

@@ -2,7 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="../include/header.jsp" %>
 
-    <title >마이페이지</title><br/><br/>
     <style>
       table {
    	 	border-collapse: separate;
@@ -73,6 +72,7 @@
             </div>
         </div>
         <div align="center">
+           	<button type="button" onclick="location.href='member_myBoardList.mem'">작성 글 보기</button>	 
            	<button type="submit" class="btn btn-primary" onclick="location.href='member_modify.mem'">회원 정보 수정</button>	 
 			<button type="submit" class="btn btn-danger" onclick="location.href='member_delete.mem'">회원탈퇴</button>             
         </div>

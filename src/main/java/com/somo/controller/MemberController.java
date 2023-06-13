@@ -2,6 +2,7 @@ package com.somo.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.somo.hboard.model.HBoardVO;
 import com.somo.member.model.MemberVO;
 import com.somo.member.service.MemberService;
 import com.somo.member.service.MemberServiceImpl;
@@ -123,6 +125,13 @@ public class MemberController extends HttpServlet {
 				
 			}
 		
+		//로그아웃 - 인증수단을 삭제	
+		} else if(command.equals("/member/member_logout.mem")) {
+			
+			session.invalidate();
+			response.sendRedirect("/member/member_login.mem");
+			
+			
 		//마이페이지
 		} else if(command.equals("/member/member_mypage.mem")) {
 			
@@ -169,6 +178,35 @@ public class MemberController extends HttpServlet {
 				
 				response.sendRedirect("member_modify.mem");
 			}
+		
+		//회원 탈퇴
+		} else if(command.equals("/member/member_delete.mem")) {
+			
+			int result = service.deleteInfo(request, response);
+			
+			if(result==1) {
+				
+				//out객체를 이용한 메시지 전달
+				response.setContentType("text/html; charset=UTF-8;");
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('탈퇴되셨습니다. 이용해주셔서 감사합니다.');");
+				out.println("location.href='../index.jsp';");
+				out.println("</script>");
+				
+			} else {
+							
+				response.sendRedirect("member_mypage.mem");
+				
+			}
+				
+		//내가 작성한 글 보기	
+		} else if(command.equals("/member/member_myBoardList.mem")) {
+			
+			List<HBoardVO> list = service.findMyBoard(request, response);
+			request.setAttribute("list", list);
+			
+			request.getRequestDispatcher("member_myBoardList.jsp").forward(request, response);
 			
 		}
 		

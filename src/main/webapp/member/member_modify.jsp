@@ -58,8 +58,8 @@
 				<tr>
 					<td>성별</td>
 					<td>
-						<input type="radio" name="gender" value="M" ${vo.memGender == 'M' ? 'checked' : '' }>남자
-						<input type="radio" name="gender" value="F" ${vo.memGender == 'F' ? 'checked' : '' }>여자					
+						<input type="radio" name="memGender" value="M" ${vo.memGender == 'M' ? 'checked' : '' }>남자
+						<input type="radio" name="memGender" value="F" ${vo.memGender == 'F' ? 'checked' : '' }>여자					
 					</td>
 				</tr>				
 			</table>	

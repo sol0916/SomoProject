@@ -5,11 +5,11 @@
 <section>
 	
 	<div align="center" class="fs-3">
-	<p>로그인</p>
+	<p>로그인</p> <br/>
 	
-	<form action="loginForm.mem" method="post">
-		<input type="text" name="memId" placeholder="아이디"> <br/>
-		<input type="password" name="memPw" placeholder="비밀번호"> <br/>
+	<form action="loginForm.mem" method="post" class="st">
+		<input type="text" name="memId" placeholder="아이디"> <br/><br/>
+		<input type="password" name="memPw" placeholder="비밀번호"> <br/><br/>
 		
 		<input type="submit" value="로그인">
 		<input type="button" value="가입하기" onclick="location.href='member_join.mem'">
