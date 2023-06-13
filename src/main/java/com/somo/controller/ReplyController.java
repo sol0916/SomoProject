@@ -39,21 +39,33 @@ public class ReplyController extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		ReplyService service = new ReplyServiceImpl();
-		
+		//댓글 등록
 		if(command.equals("/hboard/reply_insert.reply")) {
+			
 			service.insertReply(request, response);
 			int boardNum = Integer.parseInt(request.getParameter("boardNum"));
 			response.sendRedirect(request.getContextPath()+"/hboard/hboard_content.hboard?boardNum="+boardNum);
+		//댓글 수정
 		} else if(command.equals("/hboard/reply_modify.reply")) {
+			
 			ReplyVO rpvo = service.getoneReply(request, response);
 			request.setAttribute("replymodify", 1);
 			request.setAttribute("rpvo", rpvo);
 			int boardNum = Integer.parseInt(request.getParameter("boardNum"));
 			request.getRequestDispatcher("/hboard/hboard_content.hboard?boardNum="+boardNum).forward(request, response);
+		//댓글 수정 과정 
 		} else if(command.equals("/hboard/reply_update.reply")) {
+			
 			service.updateReply(request, response);
 			int boardNum = Integer.parseInt(request.getParameter("boardNum"));
 			response.sendRedirect(request.getContextPath()+"/hboard/hboard_content.hboard?boardNum="+boardNum);
+		//댓글 삭제
+		}else if(command.equals("/hboard/reply_delete.reply")) {
+			service.deleteReply(request, response);
+			int boardNum = Integer.parseInt(request.getParameter("boardNum"));
+			response.sendRedirect(request.getContextPath()+"/hboard/hboard_content.hboard?boardNum="+boardNum);
+			
+			
 		}
 		
 		

@@ -33,8 +33,9 @@ public class ReplyServiceImpl implements ReplyService {
 
 	@Override
 	public int deleteReply(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		return 0;
+		int rno = Integer.parseInt(request.getParameter("rNo"));
+		
+		return dao.deleteReply(rno);
 	}
 
 	@Override
