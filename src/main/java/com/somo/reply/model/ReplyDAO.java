@@ -118,38 +118,6 @@ public class ReplyDAO {
 	}
 	
 	//댓글 조회하기
-	public List<ReplyVO> getReply(int boardnum) {
-		String sql = "select * from reply where boardnum =?";
-		List<ReplyVO> list = new ArrayList<>();
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		try {
-			conn = DriverManager.getConnection(url, uid, upw);
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, boardnum);
-			rs = pstmt.executeQuery();
-			while(rs.next()) {
-				ReplyVO vo = new ReplyVO(rs.getInt("rno"), rs.getString("rwriter"), rs.getString("rcontent")
-						, rs.getTimestamp("rdate"), rs.getInt("boardnum"));
-				
-				list.add(vo);
-			}
-			
-		} catch (SQLException e) {
-			System.out.println("getReply메소드의 에러");
-			e.printStackTrace();
-		} finally {
-			try {
-				conn.close();
-				pstmt.close();
-			} catch (Exception e2) {
-
-			}
-		}
-		
-		return list;
-	}
 	
 	public ReplyVO getoneReply(int rno) {
 		String sql = "select * from reply where rno =?";
@@ -182,5 +150,38 @@ public class ReplyDAO {
 		}
 		
 		return null;
+	}
+
+	public List<ReplyVO> getReply(int boardnum) {
+		String sql = "select * from reply where boardnum =?";
+		List<ReplyVO> list = new ArrayList<>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = DriverManager.getConnection(url, uid, upw);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardnum);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				ReplyVO vo = new ReplyVO(rs.getInt("rno"), rs.getString("rwriter"), rs.getString("rcontent")
+						, rs.getTimestamp("rdate"), rs.getInt("boardnum"));
+				
+				list.add(vo);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("getReply메소드의 에러");
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+				pstmt.close();
+			} catch (Exception e2) {
+
+			}
+		}
+		
+		return list;
 	}
 }
