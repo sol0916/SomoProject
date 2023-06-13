@@ -89,6 +89,10 @@ public class HBoardController extends HttpServlet {
 			request.setAttribute("list", list);
 			request.getRequestDispatcher("hboard_list.jsp").forward(request, response);
 		
+		}else if (command.equals("/hboard/hboard_req.hboard")) {
+			
+			request.getRequestDispatcher("hboard_req.jsp").forward(request, response);
+		
 		}
 		
 		
