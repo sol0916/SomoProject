@@ -117,14 +117,58 @@ public class MemberController extends HttpServlet {
 				//세션에 회원정보 저장
 				session.setAttribute("user_id", vo.getMemId());
 				session.setAttribute("user_nick", vo.getMemNick());
+				session.setAttribute("user_name", vo.getMemName());
 				
 				response.sendRedirect("member_mypage.mem");
 				
 			}
-			
+		
+		//마이페이지
 		} else if(command.equals("/member/member_mypage.mem")) {
 			
+			MemberVO vo = service.getInfo(request, response);
+			request.setAttribute("vo", vo);
+			
 			request.getRequestDispatcher("member_mypage.jsp").forward(request, response);
+		
+		//회원정보 수정 페이지 이동
+		} else if(command.equals("/member/member_modify.mem")) {
+			
+			MemberVO vo = service.getInfo(request, response);
+			request.setAttribute("vo", vo);
+			
+			MemberServiceImpl si = new MemberServiceImpl();
+			String[] addr = si.splitAddr(vo.getMemAddr());
+			String memAddr1 = addr[0];
+			String memAddr2 = addr[1];
+			
+			request.setAttribute("memAddr1", memAddr1);
+			request.setAttribute("memAddr2", memAddr2);
+			
+			request.getRequestDispatcher("member_modify.jsp").forward(request, response);
+		
+		//회원정보 수정
+		} else if(command.equals("/member/member_update.mem")) {
+			
+			int result = service.updateInfo(request, response);
+			
+			if(result==1) { //성공
+				
+				String memNick = request.getParameter("memNick");
+				session.setAttribute("user_Nick", memNick);
+				
+				//out객체를 이용한 메시지 전달
+				response.setContentType("text/html; charset=UTF-8;");
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('수정되었습니다');");
+				out.println("location.href='member_mypage.mem';");
+				out.println("</script>");
+				
+			} else {
+				
+				response.sendRedirect("member_modify.mem");
+			}
 			
 		}
 		
