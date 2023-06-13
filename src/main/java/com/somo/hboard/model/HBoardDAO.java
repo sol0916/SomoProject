@@ -198,6 +198,7 @@ public class HBoardDAO {
 		try {
 			conn = DriverManager.getConnection(url, uid, upw);
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, hno);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
