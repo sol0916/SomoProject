@@ -75,9 +75,8 @@ public class HBoardController extends HttpServlet {
 			HBoardVO vo = service.getContent(request, response);
 			request.setAttribute("vo", vo);
 			
-			ReplyService rpservice = new ReplyServiceImpl();
-			List<ReplyVO> rplist = rpservice.getReply(request, response);
-			request.setAttribute("rplist", rplist);
+
+
 			
 			request.getRequestDispatcher("hboard_content.jsp").forward(request, response);
 			
