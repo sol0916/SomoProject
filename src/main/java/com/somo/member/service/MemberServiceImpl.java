@@ -81,4 +81,37 @@ public class MemberServiceImpl implements MemberService {
 		
 		return vo;
 	}
+	
+	//주소 나누기
+	public String[] splitAddr(String memAddr) {
+				
+		String[] addr = memAddr.split(" ");
+		
+		String memAddr1 = addr[0];
+		String memAddr2 = addr[1];
+		
+		return new String[] {memAddr1, memAddr2};
+	}
+
+	//회원정보 수정하기
+	@Override
+	public int updateInfo(HttpServletRequest request, HttpServletResponse response) {
+		
+		String memId = request.getParameter("memId");
+		String memPhone = request.getParameter("memPhone");
+		String memAddr1 = request.getParameter("memAddr1");
+		String memAddr2 = request.getParameter("memAddr2");
+		String memAddr = memAddr1 + " " + memAddr2;
+		String memGender = request.getParameter("memGender");
+		String memBirth = request.getParameter("memBirth");
+		String memNick = request.getParameter("memNick");
+		String memEmail = request.getParameter("memEmail");
+		
+		MemberVO vo = new MemberVO(memId, null, null, memPhone, memAddr, memGender, memBirth, null, memNick, memEmail);
+		MemberDAO dao = MemberDAO.getInstance();
+		
+		int result = dao.updateInfo(vo);
+		
+		return result;
+	}
 }

@@ -39,8 +39,52 @@
 				<input type="button" value="삭제">&nbsp;&nbsp;
 			</td>
 		</tr>
+	 <c:if test="${rplist!=null }">
+		<c:forEach var="rp" items="${rplist }">
+			<tr>
+				<td colspan="4" align="center">
+					<div class="input-group fs-5">
+						<p>${rp.rContent }</p> &nbsp;&nbsp;&nbsp;&nbsp;
+					  <button class="btn btn-outline-secondary" type="button" onclick="location.href='reply_modify.reply?rNo=${rp.rNo}&boardNum=${vo.boardNum}'">수정</button>&nbsp;&nbsp;
+					  <button class="btn btn-outline-secondary" type="button">삭제</button>
+					</div>
+				</td>
+			</tr>
+		</c:forEach>
+	 </c:if>
+		<tr>
+		 <c:choose>
+		  <c:when test="${replymodify ==null }">
+			<td colspan="4" align="center">
+				 <form class="row" action="<%=request.getContextPath() %>/hboard/reply_insert.reply" method="post">
+				 	<input type="hidden" value="${vo.boardNum }" name = "boardNum">
+				  <div class="col" align="right">
+				    <input type="text" name="rContent" class="form-control" placeholder="댓글 써주세여">
+				  </div>
+				  <div class="col-auto">
+				    <button type="submit" class="btn btn-primary">작성하기</button>
+				  </div>
+				</form>
+			</td>
+		  </c:when>
+		  <c:otherwise>
+		  	<td colspan="4" align="center">
+				 <form class="row" action="<%=request.getContextPath() %>/hboard/reply_update.reply" method="post">
+				 	<input type="hidden" value="${vo.boardNum }" name = "boardNum">
+				 	<input type="hidden" value="${rpvo.rNo}" name = "rNo">
+				  <div class="col" align="right">
+				    <input type="text" name="rContent" class="form-control" placeholder="댓글 써주세여" value="${rpvo.rContent }">
+				  </div>
+				  <div class="col-auto">
+				    <button type="submit" class="btn btn-primary">수정하기</button>
+				  </div>
+				</form>
+			</td>
+		  </c:otherwise>	
+		 </c:choose>
+		</tr>	
 	</table>
-	
+			
 </div>
 
 <%@ include file="../include/footer.jsp" %>

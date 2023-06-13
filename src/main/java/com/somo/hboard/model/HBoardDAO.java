@@ -31,10 +31,9 @@ public class HBoardDAO {
 
 	//데이터베이스 연결주소
 	//오라클 커넥터
-	private String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	private String url = "jdbc:oracle:thin:@172.30.1.95:1521:xe";
 	private String uid = "SOMO";
 	private String upw = "SOMO";
-
 
 	//글 등록하기 회원외에 등록는 작성불가
 	public void regist(String boTitle, String boContent) {
