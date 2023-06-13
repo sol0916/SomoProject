@@ -59,12 +59,8 @@
 <body>
 	<!-- header -->
 	<div class="brand">SOMO</div>        
-<<<<<<< HEAD
     <div class="address-bar">Welcome to SOMO</div>   
-=======
-    <div class="address-bar">Welcome to SOMO</div>
     
->>>>>>> 2adb9046b7768bbbdc940ad341fc944eb4d3d7da
     <nav class="navbar navbar-default abc fs-2" role="navigation">
         <div class="container">
             <div class="navbar-header">
