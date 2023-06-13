@@ -57,18 +57,10 @@
 </head>
 
 <body>
-<<<<<<< HEAD
 	<!-- header -->
 	<div class="brand">SOMO</div>        
-    <div class="address-bar">Welcome to SOMO</div>
-    <nav class="navbar navbar-default abc" role="navigation">
-=======
-   <!-- header -->
-   <div class="brand">My Web</div>        
-    <div class="address-bar">Welcome to MyWorld</div>
-    
+    <div class="address-bar">Welcome to SOMO</div>   
     <nav class="navbar navbar-default abc fs-2" role="navigation">
->>>>>>> ca03a5aea845083f000b58d83cf9a839339120e1
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
