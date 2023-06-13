@@ -3,19 +3,15 @@
 <%@ include file="../include/header.jsp" %>
 
 <div align="center" class="div_center">
-	<h3>게시판 글 수정 페이지</h3>
+	<h3>게시판 글 수정 페이지 </h3>
 	<hr>
 	
 	<form action="hboard_update.hboard" method="post">
 			
 			<input type="hidden" name="boardNum" value="${vo.boardNum }">
 		
-		<table border="1" width="500">
+		<table border="1" width="500" class="table-bordered fs-3">
 			
-			<!--<tr> 
-				<td>글 번호</td>
-				<td></td>
-			</tr> -->
 			
 			<tr>
 				<td>작성자</td>

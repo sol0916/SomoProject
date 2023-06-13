@@ -81,6 +81,9 @@
                         <a href="<%=request.getContextPath() %>/index.jsp">HOME</a>
                     </li>
                     <li>
+                        <a href="<%=request.getContextPath() %>/notice/board_list.board">NOTICE</a>
+                    </li>
+                    <li>
                         <a href="<%=request.getContextPath() %>/member/member.user">Member</a>
                     </li>
                     <li>
