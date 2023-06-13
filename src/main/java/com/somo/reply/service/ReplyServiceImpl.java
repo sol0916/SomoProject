@@ -9,7 +9,9 @@ import com.somo.reply.model.ReplyDAO;
 import com.somo.reply.model.ReplyVO;
 
 public class ReplyServiceImpl implements ReplyService {
-
+	
+	ReplyDAO dao = ReplyDAO.getInstance();
+	
 	@Override
 	public int insertReply(HttpServletRequest request, HttpServletResponse response) {
 		String rcontent = request.getParameter("rContent");
@@ -23,8 +25,10 @@ public class ReplyServiceImpl implements ReplyService {
 
 	@Override
 	public int updateReply(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		return 0;
+		int rno = Integer.parseInt(request.getParameter("rNo"));
+		String rcontent = request.getParameter("rContent");
+		
+		return dao.updateReply(rno, rcontent);
 	}
 
 	@Override
@@ -40,6 +44,14 @@ public class ReplyServiceImpl implements ReplyService {
 		
 		
 		return dao.getReply(boardnum);
+	}
+
+	@Override
+	public ReplyVO getoneReply(HttpServletRequest request, HttpServletResponse response) {
+		
+		int rno = Integer.parseInt(request.getParameter("rNo"));
+		
+		return dao.getoneReply(rno);
 	}
 
 	

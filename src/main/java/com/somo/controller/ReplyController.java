@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.somo.reply.model.ReplyVO;
 import com.somo.reply.service.ReplyService;
 import com.somo.reply.service.ReplyServiceImpl;
 
@@ -41,6 +42,16 @@ public class ReplyController extends HttpServlet {
 		
 		if(command.equals("/hboard/reply_insert.reply")) {
 			service.insertReply(request, response);
+			int boardNum = Integer.parseInt(request.getParameter("boardNum"));
+			response.sendRedirect(request.getContextPath()+"/hboard/hboard_content.hboard?boardNum="+boardNum);
+		} else if(command.equals("/hboard/reply_modify.reply")) {
+			ReplyVO rpvo = service.getoneReply(request, response);
+			request.setAttribute("replymodify", 1);
+			request.setAttribute("rpvo", rpvo);
+			int boardNum = Integer.parseInt(request.getParameter("boardNum"));
+			request.getRequestDispatcher("/hboard/hboard_content.hboard?boardNum="+boardNum).forward(request, response);
+		} else if(command.equals("/hboard/reply_update.reply")) {
+			service.updateReply(request, response);
 			int boardNum = Integer.parseInt(request.getParameter("boardNum"));
 			response.sendRedirect(request.getContextPath()+"/hboard/hboard_content.hboard?boardNum="+boardNum);
 		}

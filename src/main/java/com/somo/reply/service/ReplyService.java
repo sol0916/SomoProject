@@ -13,5 +13,5 @@ public interface ReplyService {
 	int updateReply(HttpServletRequest request, HttpServletResponse response);
 	int deleteReply(HttpServletRequest request, HttpServletResponse response);
 	List<ReplyVO> getReply(HttpServletRequest request, HttpServletResponse response);
-
+	ReplyVO getoneReply(HttpServletRequest request, HttpServletResponse response);
 }
