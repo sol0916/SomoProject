@@ -228,4 +228,30 @@ public class HBoardDAO {
 		}
 		return list;
 	}
+	
+	 public void delete(String boardNum) {
+	      
+	      String sql = "DELETE FROM HBOARD WHERE BOARDNUM = ? ";
+	      
+	      Connection conn = null;
+	      PreparedStatement pstmt = null;
+	      
+	      try {
+	         conn = DriverManager.getConnection(url, uid, upw);
+	         pstmt = conn.prepareStatement(sql);
+	         pstmt.setString(1, boardNum);
+	         
+	         pstmt.executeUpdate();
+	         
+	      } catch (Exception e) {
+	         // TODO: handle exception
+	      } finally {
+	         try {
+	            conn.close();
+	            pstmt.close();
+	         } catch (Exception e2) {
+	            // TODO: handle exception
+	         }
+	      }
+	   }
 }

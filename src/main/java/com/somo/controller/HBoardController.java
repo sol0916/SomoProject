@@ -100,7 +100,14 @@ public class HBoardController extends HttpServlet {
 			
 			request.getRequestDispatcher("hboard_req.jsp").forward(request, response);
 		
-		}
+		}else if (command.equals("/hboard/hboard_delete.hboard")) {
+	         
+	         service.delete(request, response);
+	         
+	         response.sendRedirect("hboard_list.hboard");
+	         
+	         
+	      }
 		
 		
 		

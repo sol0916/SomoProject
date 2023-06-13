@@ -63,6 +63,14 @@ public class HBoardServiceImpl implements HBoardService {
 		return list;
 	}
 
+	@Override
+	public void delete(HttpServletRequest request, HttpServletResponse response) {
+		String boardNum = request.getParameter("boardNum");
+	      
+	      HBoardDAO dao = HBoardDAO.getInstance();
+	      dao.delete(boardNum);
+	}
+
 			
 	
 }
