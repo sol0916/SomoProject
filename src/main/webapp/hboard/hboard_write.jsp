@@ -7,7 +7,7 @@
 	<hr>
 	
 	<form action="registForm.hboard" method="post">
-		<table border="1" width="500">
+		<table  class ="table col-6">
 			<tr>
 				<td>작성자</td>
 				<td>
