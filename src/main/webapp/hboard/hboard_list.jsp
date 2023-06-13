@@ -7,7 +7,7 @@
 	<div class="container">
 		<h3>My Web게시판</h3>
 
-		<table class="table table-bordered">
+		<table class="table table-striped table-bordered fs-4 table-hover border-dark">
 			<thead>
 				<tr>
 					<th>순서</th>

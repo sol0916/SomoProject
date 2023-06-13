@@ -81,7 +81,7 @@ public class HBoardController extends HttpServlet {
 			HBoardVO vo = service.getContent(request, response);
 			request.setAttribute("vo", vo);
 			
-			request.getRequestDispatcher("hboard_modify.hboard").forward(request, response);
+			request.getRequestDispatcher("hboard_modify.jsp").forward(request, response);
 		
 		}else if (command.equals("/hboard/hno_board.hboard")) {
 			

@@ -7,7 +7,7 @@
 
 	<h3>게시글 내용 보기</h3>
 	<hr>
-	<table border="1" width="500">
+	<table border="1" width="500" class="table-bordered fs-3">
 		<tr>
 			<td width="20%">글번호</td>
 			<td width="30%">${vo.boardNum }</td>
