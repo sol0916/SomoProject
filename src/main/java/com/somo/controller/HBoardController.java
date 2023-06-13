@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.somo.hboard.model.HBoardVO;
 import com.somo.hboard.service.HBoardService;
 import com.somo.hboard.service.HBoardServiceImpl;
+import com.somo.reply.model.ReplyVO;
+import com.somo.reply.service.ReplyService;
+import com.somo.reply.service.ReplyServiceImpl;
 
 @WebServlet("*.hboard")
 public class HBoardController extends HttpServlet {
@@ -71,6 +74,10 @@ public class HBoardController extends HttpServlet {
 			
 			HBoardVO vo = service.getContent(request, response);
 			request.setAttribute("vo", vo);
+			
+			ReplyService rpservice = new ReplyServiceImpl();
+			List<ReplyVO> rplist = rpservice.getReply(request, response);
+			request.setAttribute("rplist", rplist);
 			
 			request.getRequestDispatcher("hboard_content.jsp").forward(request, response);
 			
