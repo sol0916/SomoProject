@@ -122,6 +122,10 @@ public class MemberController extends HttpServlet {
 				
 			}
 			
+		} else if(command.equals("/member/member_mypage.mem")) {
+			
+			request.getRequestDispatcher("member_mypage.jsp").forward(request, response);
+			
 		}
 		
 	}
