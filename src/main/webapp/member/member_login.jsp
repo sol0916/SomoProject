@@ -3,9 +3,9 @@
 <%@ include file="../include/header.jsp" %>
 
 <section>
-
-	<div align="center">
-	<h3>로그인</h3>
+	
+	<div align="center" class="fs-3">
+	<p>로그인</p>
 	
 	<form action="loginForm.mem" method="post">
 		<input type="text" name="memId" placeholder="아이디"> <br/>

@@ -18,12 +18,12 @@
   
 </style>
 <section>
-	<div align="center">
+	<div align="center" class="fs-3">
 		
 		<h3>회원가입</h3>
 		
 		<form action="joinForm.mem" method="post">
-			<table border-style:none>
+			<table class="table">
 				<tr>
 					<td>아이디</td> 
 					<td class="td-spacing"><input type="text" name="memId" required="required" pattern="\w{3,}" placeholder="아이디를 입력하세요"></td>			

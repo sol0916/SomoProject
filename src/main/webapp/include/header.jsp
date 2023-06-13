@@ -78,7 +78,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                 	<li>
-                        <a href="<%=request.getContextPath() %>/index.user">HOME</a>
+                        <a href="<%=request.getContextPath() %>/index.jsp">HOME</a>
                     </li>
                     <li>
                         <a href="<%=request.getContextPath() %>/member/member.user">Member</a>
@@ -91,20 +91,20 @@
                     	<%-- 로그인 됨 --%>
                     	<c:when test="${sessionScope.user_id != null }">
 	                    	<li>
-	                        	<a href="<%=request.getContextPath()%>/user/user_mypage.user">나의정보관리</a>
+	                        	<a href="<%=request.getContextPath()%>/user/user_mypage.mem">나의정보관리</a>
 	                    	</li>
 	                    	<li>
-	                        	<a href="<%=request.getContextPath()%>/user/user_logout.user" style="color:red">로그아웃</a>
+	                        	<a href="<%=request.getContextPath()%>/user/user_logout.mem" style="color:red">로그아웃</a>
 	                    	</li>
 	               		</c:when>
 	               		
 	               		<%-- 로그인 안됨 --%>
 	               		<c:otherwise> 
 	               			<li>
-	                        	<a href="<%=request.getContextPath()%>/user/user_login.user">LOGIN</a>
+	                        	<a href="<%=request.getContextPath()%>/member/member_login.mem">LOGIN</a>
 	                    	</li>
 	                    	<li>
-	                        	<a href="<%=request.getContextPath()%>/user/user_join.user" style="color:red">JOIN</a>
+	                        	<a href="<%=request.getContextPath()%>/member/member_join.mem" style="color:red">JOIN</a>
 	                    	</li>
 	                    </c:otherwise>
 	               	</c:choose>
