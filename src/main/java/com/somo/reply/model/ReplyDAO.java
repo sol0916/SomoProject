@@ -150,4 +150,37 @@ public class ReplyDAO {
 		
 		return list;
 	}
+	
+	public ReplyVO getoneReply(int rno) {
+		String sql = "select * from reply where rno =?";
+		List<ReplyVO> list = new ArrayList<>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = DriverManager.getConnection(url, uid, upw);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, rno);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				ReplyVO vo = new ReplyVO(rs.getInt("rno"), rs.getString("rwriter"), rs.getString("rcontent")
+						, rs.getTimestamp("rdate"), rs.getInt("boardnum"));
+				return vo;
+				
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("getoneReply메소드의 에러");
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+				pstmt.close();
+			} catch (Exception e2) {
+
+			}
+		}
+		
+		return null;
+	}
 }
