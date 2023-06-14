@@ -58,7 +58,7 @@
 						  <div class="form-group">
 						    <input type="text" name="search" placeholder="제목검색" class="form-control" >
 						  	<input type="submit" value="검색" class="btn btn-dark btn-lg">
-							<input type="button" value="글 작성" class="btn btn-dark btn-lg" onclick="location.href='hboard_write.hboard'">
+							<input type="button" value="글 작성." class="btn btn-dark btn-lg" onclick="location.href='hboard_write.hboard'">
 						  </div>
 						</form> 
 					</td>
