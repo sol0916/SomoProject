@@ -86,6 +86,23 @@ public class HBoardServiceImpl implements HBoardService {
 		return dao.getHobby();
 	}
 
+	@Override
+	public void hitup(HttpServletRequest request, HttpServletResponse response) {
+		HBoardDAO dao = HBoardDAO.getInstance();
+		dao.hitup(request.getParameter("boardNum"));
+		
+	}
+
+	@Override
+	public List<HBoardVO> search(HttpServletRequest request, HttpServletResponse response) {
+		String str = request.getParameter("search");
+		HBoardDAO dao = HBoardDAO.getInstance();
+		
+		return dao.searchBoard(str);
+	}
+
+	
+
 			
 	
 }

@@ -101,7 +101,7 @@ public class NoticeController extends HttpServlet {
 
 		
 			//글 삭제
-		} else if(command.equals("/board/board_delete.board")) {
+		} else if(command.equals("/notice/board_delete.board")) {
 			//getContent : bno
 			
 			service.delete(request, response);

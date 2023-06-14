@@ -233,6 +233,7 @@ public class HBoardDAO {
 		return list;
 	}
 	
+	//게시글 삭제
 	 public void delete(String boardNum) {
 	      
 	      String sql = "DELETE FROM HBOARD WHERE BOARDNUM = ? ";
@@ -257,5 +258,72 @@ public class HBoardDAO {
 	            // TODO: handle exception
 	         }
 	      }
+	   }
+	 //조회수 증가
+	 public void hitup(String boardnum) {
+	      
+	      String sql = "update hboard set bohit = bohit+1 where boardnum = ?";
+	      
+	      Connection conn = null;
+	      PreparedStatement pstmt = null;
+	      
+	      try {
+	         conn = DriverManager.getConnection(url, uid, upw);
+	         pstmt = conn.prepareStatement(sql);
+	         pstmt.setString(1, boardnum);
+	         
+	         pstmt.executeUpdate();
+	         
+	      } catch (Exception e) {
+	    	  e.printStackTrace();
+	      } finally {
+	         try {
+	            conn.close();
+	            pstmt.close();
+	         } catch (Exception e2) {
+	            // TODO: handle exception
+	         }
+	      }
+	   }
+	 //글 검색기능
+	 public List<HBoardVO> searchBoard(String str) {
+	      
+	      String sql = "select * from hboard where botitle like '%'||?||'%'";
+	      List<HBoardVO> list = new ArrayList<>();
+	      Connection conn = null;
+	      PreparedStatement pstmt = null;
+	      ResultSet rs = null;
+	      try {
+	         conn = DriverManager.getConnection(url, uid, upw);
+	         pstmt = conn.prepareStatement(sql);
+	         pstmt.setString(1, str);
+	         rs = pstmt.executeQuery();
+	         while(rs.next()) {
+	        	int boardNum = rs.getInt("boardNum");
+	 			String memId = rs.getString("memId");
+	 			int hNo = rs.getInt("hNo");
+	 			String boWriter = rs.getString("boWriter");
+	 			String boTitle = rs.getString("boTitle");
+	 			String boContent = rs.getString("boContent");
+	 			int boHit = rs.getInt("boHit");
+	 			Timestamp boRegdate = rs.getTimestamp("boRegdate");
+	 			
+	 			HBoardVO vo = new HBoardVO(boardNum, memId, hNo, boWriter, boTitle, boContent, boHit, boRegdate);
+	 			
+	 			list.add(vo);
+	         }
+	         
+	      } catch (Exception e) {
+	    	  e.printStackTrace();
+	      } finally {
+	         try {
+	            conn.close();
+	            pstmt.close();
+	            rs.close();
+	         } catch (Exception e2) {
+	            // TODO: handle exception
+	         }
+	      }
+	      return list;
 	   }
 }
