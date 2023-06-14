@@ -52,9 +52,10 @@
 			</tr>
 		</c:forEach>
 	 </c:if> 
+		<c:if test="${sessionScope.user_id !=null }"> 
 		<tr>
 		 <c:choose>
-		  <c:when test="${replymodify ==null }">
+		  <c:when test="${replymodify == null }">
 			<td colspan="4" align="center">
 				 <form class="row" action="<%=request.getContextPath() %>/hboard/reply_insert.reply" method="post">
 				 	<input type="hidden" value="${vo.boardNum }" name = "boardNum">
@@ -70,6 +71,8 @@
 		  <c:otherwise>
 		  	<td colspan="4" align="center">
 				 <form class="row" action="<%=request.getContextPath() %>/hboard/reply_update.reply" method="post">
+				 	
+				 	<input type="hidden" value="${rpvo.rWriter }" name = "rWriter">
 				 	<input type="hidden" value="${vo.boardNum }" name = "boardNum">
 				 	<input type="hidden" value="${rpvo.rNo}" name = "rNo">
 				  <div class="col" align="right">
@@ -82,7 +85,8 @@
 			</td>
 		  </c:otherwise>	
 		 </c:choose>
-		</tr>	
+		</tr>
+	</c:if>		
 	</table>
 			
 </div>
