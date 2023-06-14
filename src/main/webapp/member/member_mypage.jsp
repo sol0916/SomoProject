@@ -74,8 +74,8 @@
         <div align="center">
            	<button type="button" onclick="location.href='member_myBoardList.mem'" class="btn btn-lg btn-outline-primary">작성 글 보기</button>	 
            	<button type="button" onclick="location.href='member_logout.mem'" class="btn btn-lg btn-outline-primary">로그아웃</button>	 
-           	<button type="submit" class="btn btn-outline-primary btn-lg" onclick="location.href='member_modify.mem'">회원 정보 수정</button>	 
-			<button type="submit" class="btn btn-danger btn-lg" onclick="location.href='member_delete.mem'">회원탈퇴</button>             
+           	<button type="submit" class="btn btn-outline-primary btn-lg" onclick="location.href='member_pwCheck.jsp?check=1'">회원 정보 수정</button>	 
+			<button type="submit" class="btn btn-danger btn-lg" onclick="location.href='member_pwCheck.jsp?check=2'">회원탈퇴</button>             
         </div>
 
 <%@ include file="../include/footer.jsp" %>
