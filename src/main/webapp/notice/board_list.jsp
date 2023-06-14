@@ -15,7 +15,7 @@
 					<th>순서</th>
 					<th>글 번호</th>
 					<th>작성자</th>
-					<th>제목</th>
+					<th>제목${sessionScope.user_id}</th>
 					<th>날짜</th>
 					<th>조회수</th>
 				</tr>
@@ -41,9 +41,11 @@
 				<tr>
 					<td colspan="6" align="right" >
 						<form action="" class="form-inline" >
+						  <c:if test="${sessionScope.user_id == 'admin'}">
 						  <div class="form-group">
-							<input type="button" value="글 작성" class="btn btn-dark btn-lg" onclick="location.href='board_write.board'">
+						  	<input type="button" value="글 작성" class="btn btn-dark btn-lg" onclick="location.href='board_write.board'">
 						  </div>
+						  </c:if>
 						</form> 
 					</td>
 				</tr>
