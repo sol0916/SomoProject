@@ -26,7 +26,7 @@
 			<table>
 				<tr>
 					<td>아이디</td> 
-					<td class="td-spacing"><input type="text" name="memId" required="required" pattern="[A-Za-z]{3,}" placeholder="아이디를 입력하세요"></td>			
+					<td class="td-spacing"><input type="text" name="memId" required="required" pattern="[A-Za-z0-9]{3,}" placeholder="아이디를 입력하세요"></td>			
 				</tr>
 				<tr>
 					<td>비밀번호</td> 

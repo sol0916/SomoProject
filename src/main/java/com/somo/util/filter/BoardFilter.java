@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter({"/member/member_mypage.mem",
+@WebFilter({
 	"/member/member_modify.mem",
 	"/member/member_myBoardList.mem"
 })
