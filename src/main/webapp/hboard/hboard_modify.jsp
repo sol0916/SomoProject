@@ -26,7 +26,7 @@
 			<tr>
 				<td>글 내용</td>
 				<td>
-					<textarea rows="10" style="width: 95%;" name="boContent">%{vo.boContent}
+					<textarea rows="10" style="width: 95%;" name="boContent">${vo.boContent}
 					</textarea>
 				</td>
 			</tr>

@@ -84,9 +84,6 @@
                         <a href="<%=request.getContextPath() %>/notice/board_list.board">NOTICE</a>
                     </li>
                     <li>
-                        <a href="<%=request.getContextPath() %>/member/member.user">Member</a>
-                    </li>
-                    <li>
                         <a href="<%=request.getContextPath()%>/hboard/hboard_list.hboard">BOARD</a>
                     </li>
                     
@@ -94,10 +91,10 @@
                     	<%-- 로그인 됨 --%>
                     	<c:when test="${sessionScope.user_id != null }">
 	                    	<li>
-	                        	<a href="<%=request.getContextPath()%>/user/user_mypage.mem">나의정보관리</a>
+	                        	<a href="<%=request.getContextPath()%>/member/member_mypage.mem">나의정보관리</a>
 	                    	</li>
 	                    	<li>
-	                        	<a href="<%=request.getContextPath()%>/user/user_logout.mem" style="color:red">로그아웃</a>
+	                        	<a href="<%=request.getContextPath()%>/member/member_logout.mem" style="color:red">로그아웃</a>
 	                    	</li>
 	               		</c:when>
 	               		
@@ -106,9 +103,7 @@
 	               			<li>
 	                        	<a href="<%=request.getContextPath()%>/member/member_login.mem">LOGIN</a>
 	                    	</li>
-	                    	<li>
-	                        	<a href="<%=request.getContextPath()%>/member/member_join.mem" style="color:red">JOIN</a>
-	                    	</li>
+	                    	
 	                    </c:otherwise>
 	               	</c:choose>
 	               		

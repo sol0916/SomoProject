@@ -55,7 +55,7 @@
 				</tr>
 				<tr>
 					<td>핸드폰 번호</td> 
-					<td class="td-spacing"><input type="text" name="memPhone" placeholder="010-000-0000"></td>
+					<td class="td-spacing"><input type="text" name="memPhone" placeholder="010-0000-0000"></td>
 				</tr>
 				<tr>
 					<td>생일</td>
@@ -95,7 +95,7 @@
 			
 			<br/>
 			<input type="submit" value="가입">
-			<input type="button" value="돌아가기">
+			<input type="button" value="돌아가기" onclick="location.href='../index.jsp'">
 			
 		</form>	
 	</div>

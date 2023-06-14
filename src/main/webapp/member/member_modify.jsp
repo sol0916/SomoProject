@@ -6,10 +6,10 @@
 	<div align="center">
 	
 		<h3>회원정보 수정</h3>
-		<b>${vo.memName }님 회원 정보를 수정합니다</b>
+		<h4>${vo.memName }님 회원 정보를 수정합니다</h4>
 	
 			<form action="member_update.mem" method="post">
-			<table>
+			<table  class="table-borderless fs-3">
 				<tr>
 					<td>아이디</td>
 					<td><input type="text" name="memId" value="${vo.memId }" readonly="readonly"></td>			
@@ -58,15 +58,15 @@
 				<tr>
 					<td>성별</td>
 					<td>
-						<input type="radio" name="gender" value="M" ${vo.memGender == 'M' ? 'checked' : '' }>남자
-						<input type="radio" name="gender" value="F" ${vo.memGender == 'F' ? 'checked' : '' }>여자					
+						<input type="radio" name="memGender" value="M" ${vo.memGender == 'M' ? 'checked' : '' }>남자
+						<input type="radio" name="memGender" value="F" ${vo.memGender == 'F' ? 'checked' : '' }>여자					
 					</td>
 				</tr>				
 			</table>	
 			
 			
-			<input type="submit" value="정보수정">
-			<input type="button" value="회원페이지로 가기" onclick="location.href='user_mypage.user'">
+			<input type="submit" value="정보수정" class="btn btn-lg btn-primary">
+			<input type="button" value="회원페이지로 가기" onclick="location.href='member_mypage.mem'" class="btn btn-lg btn-primary">
 			
 		</form>	
 	
