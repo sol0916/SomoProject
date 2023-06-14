@@ -26,7 +26,7 @@
 			<table>
 				<tr>
 					<td>아이디</td> 
-					<td class="td-spacing"><input type="text" name="memId" required="required" pattern="\w{3,}" placeholder="아이디를 입력하세요"></td>			
+					<td class="td-spacing"><input type="text" name="memId" required="required" pattern="[A-Za-z]{3,}" placeholder="아이디를 입력하세요"></td>			
 				</tr>
 				<tr>
 					<td>비밀번호</td> 
@@ -55,11 +55,11 @@
 				</tr>
 				<tr>
 					<td>핸드폰 번호</td> 
-					<td class="td-spacing"><input type="text" name="memPhone" placeholder="010-0000-0000"></td>
+					<td class="td-spacing"><input type="text" name="memPhone" pattern="\d{3}-\d{4}-\d{4}" placeholder="010-0000-0000"></td>
 				</tr>
 				<tr>
 					<td>생일</td>
-					<td class="td-spacing"><input type="text" name="memBirth" placeholder="yy.mm.dd"></td>
+					<td class="td-spacing"><input type="text" name="memBirth" pattern="\d{2}.\d{2}.\d{2}" placeholder="yy.mm.dd"></td>
 				</tr>
 				<tr>
 					<td>지역</td>

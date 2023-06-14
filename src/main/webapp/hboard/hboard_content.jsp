@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>  
+    
 <%@ include file="../include/header.jsp" %>
 
 <div align="center" class="div_center">
@@ -20,7 +22,7 @@
 			<td>${vo.boWriter }</td>
 			
 			<td>작성일</td>
-			<td>${vo.boRegdate }</td>
+			<td><fmt:formatDate value="${vo.boRegdate }" pattern="yyyy-MM-dd(E) hh시mm분"/></td>
 		</tr>
 		
 		<tr>
@@ -47,7 +49,10 @@
 			<tr>
 				<td colspan="4">
 					<div class="input-group fs-5">
-						<p>${rp.rContent }</p> &nbsp;&nbsp;&nbsp;&nbsp;
+					    &nbsp;
+						<p>${rp.rnick }</p>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<p>${rp.rContent }</p> &nbsp;&nbsp;&nbsp;&nbsp;					
 					  <c:if test="${sessionScope.user_id != null }">
 					  <button class="btn btn-outline-secondary btn-outline-dark btn-lg" type="button" onclick="location.href='reply_modify.reply?rNo=${rp.rNo}&boardNum=${vo.boardNum}'">수정</button>&nbsp;&nbsp;
 					  <button class="btn btn-outline-secondary btn-outline-dark btn-lg" type="button" onclick="location.href='reply_delete.reply?rNo=${rp.rNo}&boardNum=${vo.boardNum}'">삭제</button>

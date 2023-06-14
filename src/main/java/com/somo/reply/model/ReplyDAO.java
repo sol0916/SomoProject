@@ -153,7 +153,7 @@ public class ReplyDAO {
 	}
 
 	public List<ReplyVO> getReply(int boardnum) {
-		String sql = "select * from reply where boardnum =?";
+		String sql = "select r.*, memnick from member m join reply r on m.memid = r.rwriter where boardnum=? order by rno desc";
 		List<ReplyVO> list = new ArrayList<>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -165,7 +165,7 @@ public class ReplyDAO {
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				ReplyVO vo = new ReplyVO(rs.getInt("rno"), rs.getString("rwriter"), rs.getString("rcontent")
-						, rs.getTimestamp("rdate"), rs.getInt("boardnum"));
+						, rs.getTimestamp("rdate"), rs.getInt("boardnum"),rs.getString("memnick"));
 				
 				list.add(vo);
 			}

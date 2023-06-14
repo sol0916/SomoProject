@@ -15,7 +15,7 @@
 					<th>순서</th>
 					<th>글 번호</th>
 					<th>작성자</th>
-					<th>제목${sessionScope.user_id}</th>
+					<th>제목</th>
 					<th>날짜</th>
 					<th>조회수</th>
 				</tr>
@@ -30,7 +30,7 @@
 					<td>${vo.ntno }</td>
 					<td>${vo.memid }</td>
 					<td><a href="board_content.board?ntno=${vo.ntno}">${vo.nttitle }</a></td>
-					<td><fmt:formatDate value="${vo.ntregdate }" pattern="yyyy-MM-dd (E) hh시ss분"/></td>
+					<td><fmt:formatDate value="${vo.ntregdate }" pattern="yyyy-MM-dd (E) hh시mm분"/></td>
 					<td>${vo.nthit }</td>
 				</tr>
 				

@@ -1,13 +1,13 @@
 package com.somo.notice.model;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class NoticeVO {
 
 	private int ntno;
 	private String nttitle;
 	private String ntcontent;
-	private Date ntregdate;
+	private Timestamp ntregdate;
 	private int nthit;
 	private String memid;
 	
@@ -15,7 +15,7 @@ public class NoticeVO {
 		
 	}
 
-	public NoticeVO(int ntno, String nttitle, String ntcontent, Date ntregdate, int nthit, String memid) {
+	public NoticeVO(int ntno, String nttitle, String ntcontent, Timestamp ntregdate, int nthit, String memid) {
 		super();
 		this.ntno = ntno;
 		this.nttitle = nttitle;
@@ -51,11 +51,11 @@ public class NoticeVO {
 		this.ntcontent = ntcontent;
 	}
 
-	public Date getNtregdate() {
+	public Timestamp getNtregdate() {
 		return ntregdate;
 	}
 
-	public void setNtregdate(Date ntregdate) {
+	public void setNtregdate(Timestamp ntregdate) {
 		this.ntregdate = ntregdate;
 	}
 

@@ -40,8 +40,8 @@ public class NoticeDAO {
 	//글 등록
 	public void regist(String writer, String title, String content) {
 
-		String sql="   INSERT INTO NOTICE(NTNO, NTTITLE, NTCONTENT, MEMID) VALUES( BOARD_SEQ.NEXTVAL, ?,?,?)";
-
+		String sql="INSERT INTO NOTICE VALUES( BOARD_SEQ.NEXTVAL, ?,?,sysdate,0,?)";
+		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 
@@ -52,7 +52,7 @@ public class NoticeDAO {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, title);
 			pstmt.setString(2, content);
-			pstmt.setString(3, "aaa");//writer
+			pstmt.setString(3, writer);//writer
 
 			pstmt.executeUpdate();
 
@@ -102,7 +102,7 @@ public class NoticeDAO {
 				int ntno = rs.getInt("ntno");
 				String ntitle = rs.getString("nttitle");
 				String ntcontent = rs.getString("ntcontent");
-				Date ntregdate = rs.getDate("ntregdate");
+				Timestamp ntregdate = rs.getTimestamp("ntregdate");
 				int nthit = rs.getInt("nthit");
 				String memid = rs.getString("memid");
 
@@ -160,7 +160,7 @@ public class NoticeDAO {
 				int ntno2 = rs.getInt("ntno");
 				String ntitle = rs.getString("nttitle");
 				String ntcontent = rs.getString("ntcontent");
-				Date ntregdate = rs.getDate("ntregdate");
+				Timestamp ntregdate = rs.getTimestamp("ntregdate");
 				int nthit = rs.getInt("nthit");
 				String memid = rs.getString("memid");
 

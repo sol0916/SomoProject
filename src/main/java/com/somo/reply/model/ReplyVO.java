@@ -9,8 +9,19 @@ public class ReplyVO {
 	private String rContent;
 	private Timestamp rDate;
 	private	int boardNum;
+	private String rnick;
 	
 	
+	public String getRnick() {
+		return rnick;
+	}
+
+
+	public void setRnick(String rnick) {
+		this.rnick = rnick;
+	}
+
+
 	//생성자 2개
 	public ReplyVO() {
 		// TODO Auto-generated constructor stub
@@ -25,8 +36,21 @@ public class ReplyVO {
 		this.rDate = rDate;
 		this.boardNum = boardNum;
 	}
+	
+	
 
 	
+	public ReplyVO(int rNo, String rWriter, String rContent, Timestamp rDate, int boardNum, String rnick) {
+		super();
+		this.rNo = rNo;
+		this.rWriter = rWriter;
+		this.rContent = rContent;
+		this.rDate = rDate;
+		this.boardNum = boardNum;
+		this.rnick = rnick;
+	}
+
+
 	//getter, setter
 
 	public int getrNo() {

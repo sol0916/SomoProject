@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>    
 
 <%@ include file="../include/header.jsp" %>
 
@@ -23,7 +24,7 @@
 			<td>${vo.memid }</td>
 			
 			<td>작성일</td>
-			<td >${vo.ntregdate }</td>
+			<td><fmt:formatDate value="${vo.ntregdate }" pattern="yyyy-MM-dd (E) hh시mm분"/></td>
 		</tr>
 		
 		<tr>

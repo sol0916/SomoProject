@@ -53,7 +53,7 @@
 				</tr>
 				<tr>
 					<td>생일</td>
-					<td><input type="text" name="memBirth" value="${vo.memEmail }"></td>
+					<td><input type="text" name="memBirth" value="${vo.memBirth }"></td>
 				</tr>
 				<tr>
 					<td>성별</td>
