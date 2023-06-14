@@ -39,10 +39,10 @@
 		<tr>
 			<td colspan="4" align="center">
 				<input type="button" value="목록" class="btn btn-dark btn-lg" onclick="location.href='board_list.board'">&nbsp;&nbsp;
-			
+				<c:if test="${sessionScope.user_id !=null && sessionScope.user_id == 'admin' }">
 				<input type="button" value="수정" class="btn btn-dark btn-lg" onclick="location.href='board_modify.board?ntno=${vo.ntno}'">&nbsp;&nbsp;
 				<input type="button" value="삭제" class="btn btn-dark btn-lg" onclick="location.href='board_delete.board?ntno=${vo.ntno}'">&nbsp;&nbsp;
-				
+				</c:if>
 				
 				
 			</td>

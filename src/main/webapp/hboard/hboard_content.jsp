@@ -48,8 +48,10 @@
 				<td colspan="4">
 					<div class="input-group fs-5">
 						<p>${rp.rContent }</p> &nbsp;&nbsp;&nbsp;&nbsp;
+					  <c:if test="${sessionScope.user_id != null }">
 					  <button class="btn btn-outline-secondary btn-outline-dark btn-lg" type="button" onclick="location.href='reply_modify.reply?rNo=${rp.rNo}&boardNum=${vo.boardNum}'">수정</button>&nbsp;&nbsp;
 					  <button class="btn btn-outline-secondary btn-outline-dark btn-lg" type="button" onclick="location.href='reply_delete.reply?rNo=${rp.rNo}&boardNum=${vo.boardNum}'">삭제</button>
+					  </c:if>
 					</div>
 				</td>
 			</tr>
