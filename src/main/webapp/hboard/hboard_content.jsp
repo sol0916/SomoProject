@@ -35,9 +35,12 @@
 		<tr>
 			<td colspan="4" align="center">
 				<input type="button" value="목록" class="btn btn-dark btn-lg" onclick="location.href='hboard_list.hboard'">&nbsp;&nbsp;
+				
+				<c:if test="${vo.boWriter == sessionScope.user_id || sessionScope.user_id == 'admin'}">
 				<input type="button" value="수정" class="btn btn-dark btn-lg" onclick="location.href='hboard_modify.hboard?boardNum=${vo.boardNum}'">&nbsp;&nbsp;
 				<input type="button" value="삭제" class="btn btn-dark btn-lg" onclick="location.href='hboard_delete.hboard?boardNum=${vo.boardNum}'">&nbsp;&nbsp;
-			</td>
+				</c:if>
+				</td>
 		</tr>
 	 <c:if test="${rplist!=null }">
 		<c:forEach var="rp" items="${rplist }">
