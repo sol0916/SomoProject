@@ -60,7 +60,8 @@ public class HBoardController extends HttpServlet {
 			
 				List<HBoardVO> list = service.getList(request, response);
 				request.setAttribute("list", list);// 키값
-			
+						
+				
 			request.getRequestDispatcher("hboard_list.jsp").forward(request, response);
 		
 			//3. 등록작업
@@ -95,6 +96,7 @@ public class HBoardController extends HttpServlet {
 		}else if (command.equals("/hboard/hno_board.hboard")) {
 			
 			List<HBoardVO> list = service.gethnoList(request, response);
+			request.setAttribute("hno", request.getParameter("hno"));
 			request.setAttribute("list", list);
 			request.getRequestDispatcher("hboard_list.jsp").forward(request, response);
 		

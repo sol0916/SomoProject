@@ -45,7 +45,7 @@
 			<div class="card-body">
 				<h5 class="card-title">보드 게임</h5>
 				<p class="card-text">보드 게임을 좋아하는 사람들의 모임입니다. 보드게임 초보자도 환영합니다!</p>
-				<a href="<%=request.getContextPath() %>/hboard/hno_board.hboard?hno=6" class="btn btn-primary">보드 게임</a>
+				<a href="<%=request.getContextPath() %>/hboard/hno_board.hboard?hno=6" class="btn btn-primary">보드 게임 게시판으로 이동</a>
 			</div>
 		</div>
 		</div>
@@ -55,7 +55,7 @@
 				<div class="card-body">
 					<h5 class="card-title">운동</h5>
 					<p class="card-text">운동을 취미로 가지신분들 여기로 모이시면 됩니다.</p>
-					<a href="<%=request.getContextPath() %>/hboard/hno_board.hboard?hno=1" class="btn btn-primary">Go somewhere</a>
+					<a href="<%=request.getContextPath() %>/hboard/hno_board.hboard?hno=1" class="btn btn-primary">운동 게시판으로 이동</a>
 				</div>
 			</div>
 			
@@ -81,7 +81,7 @@
 			<div class="card-body">
 				<h5 class="card-title">댄스</h5>
 				<p class="card-text">춤을 처음 시작하는사람도 환영입니다 일단 오세요.</p>
-				<a href="<%=request.getContextPath() %>/hboard/hno_board.hboard?hno=2" class="btn btn-primary">Go somewhere</a>
+				<a href="<%=request.getContextPath() %>/hboard/hno_board.hboard?hno=2" class="btn btn-primary">댄스 게시판으로 이동</a>
 			</div>
 		</div>
 		</div>
@@ -91,7 +91,7 @@
 				<div class="card-body">
 					<h5 class="card-title">요리</h5>
 					<p class="card-text">요리를 취미로 시작하고 싶은 모든 분들 환영합니다.</p>
-					<a href="<%=request.getContextPath() %>/hboard/hno_board.hboard?hno=5" class="btn btn-primary">Go somewhere</a>
+					<a href="<%=request.getContextPath() %>/hboard/hno_board.hboard?hno=5" class="btn btn-primary">요리 게시판으로 이동</a>
 				</div>
 			</div>
 			

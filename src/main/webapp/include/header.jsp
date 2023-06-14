@@ -91,11 +91,11 @@
                     	<%-- 로그인 됨 --%>
                     	<c:when test="${sessionScope.user_id != null }">
 	                    	<li>
-	                        	<a href="<%=request.getContextPath()%>/member/member_mypage.mem">나의정보관리</a>
+	                        	<a href="<%=request.getContextPath()%>/member/member_mypage.mem">MyPage</a>
 	                    	</li>
-	                    	<li>
+<%-- 	                    	<li>
 	                        	<a href="<%=request.getContextPath()%>/member/member_logout.mem" style="color:red">로그아웃</a>
-	                    	</li>
+	                    	</li> --%>
 	               		</c:when>
 	               		
 	               		<%-- 로그인 안됨 --%>

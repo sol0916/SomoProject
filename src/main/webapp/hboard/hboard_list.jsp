@@ -5,8 +5,26 @@
 <%@ include file="../include/header.jsp" %>
 
 	<div class="container">
-		<h3>My Web게시판</h3>
-
+		<c:choose>
+			<c:when test="${hno==1 }">
+				<h3>운동 게시판</h3>
+			</c:when>
+			<c:when test="${hno==2 }">
+				<h3>댄스 게시판</h3>
+			</c:when>
+			<c:when test="${hno==3 }">
+				<h3>사진 게시판</h3>
+			</c:when>
+			<c:when test="${hno==4 }">
+				<h3>동물 게시판</h3>
+			</c:when>
+			<c:when test="${hno==5 }">
+				<h3>요리 게시판</h3>
+			</c:when>
+			<c:when test="${hno==6 }">
+				<h3>보드게임 게시판</h3>
+			</c:when>
+		</c:choose>
 		<table class="table table-striped table-bordered fs-4 table-hover border-dark">
 			<thead>
 				<tr>
