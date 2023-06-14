@@ -73,6 +73,7 @@
         </div>
         <div align="center">
            	<button type="button" onclick="location.href='member_myBoardList.mem'">작성 글 보기</button>	 
+           	<button type="button" onclick="location.href='member_logout.mem'">로그아웃</button>	 
            	<button type="submit" class="btn btn-primary" onclick="location.href='member_modify.mem'">회원 정보 수정</button>	 
 			<button type="submit" class="btn btn-danger" onclick="location.href='member_delete.mem'">회원탈퇴</button>             
         </div>

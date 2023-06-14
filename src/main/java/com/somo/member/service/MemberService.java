@@ -13,6 +13,7 @@ public interface MemberService {
 	int join(HttpServletRequest request, HttpServletResponse response);
 	MemberVO login(HttpServletRequest request, HttpServletResponse response);
 	MemberVO getInfo(HttpServletRequest request, HttpServletResponse response);
+	List<MemberVO> getMemList(HttpServletRequest request, HttpServletResponse response);
 	int updateInfo(HttpServletRequest request, HttpServletResponse response);
 	int deleteInfo(HttpServletRequest request, HttpServletResponse response);
 	List<HBoardVO> findMyBoard(HttpServletRequest request, HttpServletResponse response);

@@ -217,7 +217,7 @@ public class MemberDAO {
 		return vo;
 	}
 	
-	//정보 가져오기
+	//정보 가져오기 - 개인
 	public MemberVO getInfo(String memId) {
 		
 		MemberVO vo = null;
@@ -267,6 +267,58 @@ public class MemberDAO {
 		}
 		
 		return vo;
+	}
+	
+	//전체 정보 가져오기 - 리스트 
+	public List<MemberVO> getMemList() {
+
+		List<MemberVO> list = new ArrayList<>();
+		MemberVO vo = null;
+
+		String sql = "select * from member";
+
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+
+			conn = DriverManager.getConnection(url, uid, upw);
+
+			pstmt = conn.prepareStatement(sql);
+
+			rs = pstmt.executeQuery();
+
+			while(rs.next()) {
+
+				String memId2 = rs.getString("memId");
+				String memName = rs.getString("memName");
+				String memPhone = rs.getString("memPhone");
+				String memAddr = rs.getString("memAddr");
+				String memGender = rs.getString("memGender");
+				String memBirth = rs.getString("memBirth");
+				String memType = rs.getString("memType");
+				String memNick = rs.getString("memNick");
+				String memEmail = rs.getString("memEmail");
+
+				vo = new MemberVO(memId2, null, memName, memPhone, memAddr, memGender, memBirth, memType, memNick, memEmail);
+
+				list.add(vo);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+				pstmt.close();
+				rs.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+
+		return list;
 	}
 	
 	//정보 수정하기

@@ -90,6 +90,15 @@ public class MemberController extends HttpServlet {
 				
 			} else { //가입성공
 				
+				//out객체를 이용한 메시지 전달
+				response.setContentType("text/html; charset=UTF-8;");
+				
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('가입되셨습니다. 로그인해주십시오');");
+				out.println("location.href='member_login.mem';");
+				out.println("</script>");
+				
 				response.sendRedirect("member_login.mem");
 			}
 		
@@ -121,6 +130,15 @@ public class MemberController extends HttpServlet {
 				session.setAttribute("user_nick", vo.getMemNick());
 				session.setAttribute("user_name", vo.getMemName());
 				
+				//out객체를 이용한 메시지 전달
+				response.setContentType("text/html; charset=UTF-8;");
+				
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('환영합니다');");
+				out.println("location.href='member_mypage.mem';");
+				out.println("</script>");
+				
 				response.sendRedirect("member_mypage.mem");
 				
 			}
@@ -129,7 +147,7 @@ public class MemberController extends HttpServlet {
 		} else if(command.equals("/member/member_logout.mem")) {
 			
 			session.invalidate();
-			response.sendRedirect("/member/member_login.mem");
+			response.sendRedirect("member_login.mem");
 			
 			
 		//마이페이지

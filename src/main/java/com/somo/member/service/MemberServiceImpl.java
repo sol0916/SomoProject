@@ -86,6 +86,16 @@ public class MemberServiceImpl implements MemberService {
 		return vo;
 	}
 	
+	//전체 정보 가져오기
+	@Override
+	public List<MemberVO> getMemList(HttpServletRequest request, HttpServletResponse response) {
+		
+		MemberDAO dao = MemberDAO.getInstance();
+		List<MemberVO> list = dao.getMemList();
+		
+		return list;
+	}
+	
 	//주소 나누기
 	public String[] splitAddr(String memAddr) {
 				
