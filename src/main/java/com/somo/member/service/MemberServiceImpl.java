@@ -152,4 +152,17 @@ public class MemberServiceImpl implements MemberService {
 		return list;
 	}
 	
+	//비밀번호 확인
+	public int pwCheck(HttpServletRequest request, HttpServletResponse response) {
+
+		String memPw = request.getParameter("memPw");
+		String id  = (String)request.getSession().getAttribute("user_id");	
+		MemberDAO dao = MemberDAO.getInstance();
+		
+		int resultPw = dao.pwCheck(id,memPw);
+
+
+		return resultPw;
+	}
+	
 }

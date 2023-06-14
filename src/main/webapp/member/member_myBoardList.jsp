@@ -26,7 +26,7 @@
 					<td>${x.count }</td>
 					<td>${vo.boardNum }</td>
 					<td>${vo.boWriter }</td>
-					<td><a href="board_content.board?bno=${vo.boardNum }">${vo.boTitle }</a></td>
+					<td><a href="<%=request.getContextPath() %>/hboard/hboard_content.hboard?boardNum=${vo.boardNum }">${vo.boTitle }</a></td>
 					<td><fmt:formatDate value="${vo.boRegdate }" pattern="yyyy-MM-dd(E) hh시mm분" /></td>
 					<td>${vo.boHit }</td>
 				</tr>
