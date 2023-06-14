@@ -32,8 +32,8 @@
 			</tr>
 			<tr>
 				<td colspan="2">
-					<input type="submit" value="수정 하기" onclick="">&nbsp;&nbsp;
-					<input type="button" value="목록">        
+					<input type="submit" value="수정 하기" onclick="" class="btn btn-outline-dark btn-lg">&nbsp;&nbsp;
+					<input type="button" value="목록" class="btn btn-outline-dark btn-lg">        
 				</td>
 			</tr>
 			

@@ -73,7 +73,7 @@ public class HBoardController extends HttpServlet {
 			//상세 화면
 		
 		} else if (command.equals("/hboard/hboard_content.hboard")) {
-			
+			service.hitup(request, response);
 			HBoardVO vo = service.getContent(request, response);
 			request.setAttribute("vo", vo);
 			
@@ -108,8 +108,15 @@ public class HBoardController extends HttpServlet {
 	         
 	         response.sendRedirect("hboard_list.hboard");
 	         
+	    //검색     
+	    }else if (command.equals("/hboard/hboard_search.hboard")) {
 	         
-	      }
+	    	List<HBoardVO> list = service.search(request, response);
+	        request.setAttribute("list", list);
+	         
+	        
+	        request.getRequestDispatcher("hboard_list.jsp").forward(request, response);
+	    }
 		
 		
 		

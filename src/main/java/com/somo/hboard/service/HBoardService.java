@@ -17,4 +17,6 @@ public interface HBoardService {
 	List<HBoardVO> gethnoList(HttpServletRequest request, HttpServletResponse response);
 	void delete(HttpServletRequest request, HttpServletResponse response);
 	List<HobbyVO> getHobby(HttpServletRequest request, HttpServletResponse response);
+	void hitup(HttpServletRequest request, HttpServletResponse response);
+	List<HBoardVO> search(HttpServletRequest request, HttpServletResponse response);
 }

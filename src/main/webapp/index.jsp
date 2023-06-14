@@ -1,7 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
+<style>
+.card {
+  height: 100%; /* 카드의 높이를 100%로 설정합니다. */
 
+}
+
+.card-img-top {
+  height: 200px; /* 카드 이미지의 높이를 조정합니다. */
+  object-fit: cover; /* 이미지가 카드 영역에 꽉 차도록 설정합니다. */
+}
+
+.card-title {
+  margin-top: 10px; /* 카드 제목과 상단 여백을 설정합니다. */
+}
+
+.card-text {
+  margin-bottom: 10px; /* 카드 내용과 하단 여백을 설정합니다. */
+}
+
+.btn-primary {
+  margin-top: 10px; /* 버튼과 상단 여백을 설정합니다. */
+}
+
+</style>
 <div class="container text-center">
 
 	<div class="row ">
@@ -38,7 +61,8 @@
 			
 		</div>
 	</div>
-	<hr>
+	<br/>
+	<br/>
 	<div class="row ">
 		<div class="col-4 ">
 			<div class="card" style="width: 90%;">
@@ -78,3 +102,4 @@
 
 	<!-- /.container -->
 </div>
+<%@ include file="../include/footer.jsp" %>

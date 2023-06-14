@@ -36,7 +36,7 @@
 			<tbody>
 				<tr>
 					<td colspan="6" align="right">
-						<form action="" class="form-inline" >
+						<form action="hboard_search.hboard" class="form-inline" >
 						  <div class="form-group">
 						    <input type="text" name="search" placeholder="제목검색" class="form-control" >
 						  	<input type="submit" value="검색" class="btn btn-dark btn-lg">
