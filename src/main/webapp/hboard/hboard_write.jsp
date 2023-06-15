@@ -11,7 +11,7 @@
 			<tr>
 				<td>작성자</td>
 				<td>
-					<input type="text" name="boWriter" size="10" value="${sessionScope.user_nick }">
+					<input type="text" name="boWriter" size="10" value="${sessionScope.user_nick }" readonly="readonly">
 				</td>
 			</tr>
 			<tr>

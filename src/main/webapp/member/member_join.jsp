@@ -85,7 +85,7 @@
 				<tr>
 					<td>성별</td>
 					<td align="center" class="td-spacing">
-						<input type="radio" name="memGender" value="M">남자
+						<input type="radio" name="memGender" value="M" checked="checked">남자
 						<input type="radio" name="memGender" value="F">여자					
 					</td>
 				</tr>			
