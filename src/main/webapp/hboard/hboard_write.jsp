@@ -6,7 +6,7 @@
 	<h3>게시판 글 작성 페이지</h3>
 	<hr>
 	
-	<form action="registForm.hboard" method="post">
+	<form action="registForm.hboard" method="post" enctype="multipart/form-data">
 		<table  class ="table">
 			<tr>
 				<td>작성자</td>
@@ -34,6 +34,12 @@
 				<td>글 내용</td>
 				<td>
 					<textarea rows="10" style="width: 95%;" name="boContent"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>사진 추가</td>
+				<td>
+					<input type="file" name = "img">
 				</td>
 			</tr>
 			<tr>

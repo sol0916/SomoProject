@@ -1,10 +1,13 @@
 package com.somo.hboard.service;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.somo.hboard.model.HBoardDAO;
 import com.somo.hboard.model.HBoardVO;
 import com.somo.hobby.model.HobbyDAO;
@@ -14,6 +17,31 @@ public class HBoardServiceImpl implements HBoardService {
 
 	@Override
 	public void regist(HttpServletRequest request, HttpServletResponse response) {
+		
+		String savePath = "/boardimg";
+		String realPath = request.getServletContext().getRealPath(savePath);
+		int limitSize = 20*1024*1024;
+		try {
+			MultipartRequest multi = new MultipartRequest(request, realPath, limitSize, "utf-8",new DefaultFileRenamePolicy());
+			HobbyDAO hdao = HobbyDAO.getInstance();
+			int hno = hdao.gethno(multi.getParameter("hname"));
+			String memid = (String)request.getSession().getAttribute("user_id");		
+			String bowriter = (String)request.getSession().getAttribute("user_nick");
+			String boTitle = multi.getParameter("boTitle");
+			String boContent = multi.getParameter("boContent");
+			String filename = multi.getFilesystemName("img");
+			String originName = multi.getOriginalFileName("img");
+			
+			
+			HBoardVO vo = new HBoardVO(0, memid, hno, bowriter, boTitle, boContent, 0,null, filename);
+			HBoardDAO dao = HBoardDAO.getInstance();
+			dao.regist(vo);
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.out.println("등록안됨");
+		}
+		
+		/*
 		HobbyDAO hdao = HobbyDAO.getInstance();
 		int hno = hdao.gethno(request.getParameter("hname"));
 		String memid = (String)request.getSession().getAttribute("user_id");		
@@ -25,7 +53,7 @@ public class HBoardServiceImpl implements HBoardService {
 		HBoardVO vo = new HBoardVO(0, memid, hno, bowriter, boTitle, boContent, 0, null);
 		HBoardDAO dao = HBoardDAO.getInstance();
 		dao.regist(vo);
-
+		 */
 	}
 
 	@Override

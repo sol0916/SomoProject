@@ -38,7 +38,7 @@ public class HBoardDAO {
 	//글 등록하기 회원외에 등록는 작성불가
 	public void regist(HBoardVO vo) {
 
-		String sql = "insert into hboard values (boardnum_seq.nextval, ?, ?, ?, ?, ?, 0, sysdate)";
+		String sql = "insert into hboard values (boardnum_seq.nextval, ?, ?, ?, ?, ?, 0, sysdate,?)";
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -51,7 +51,7 @@ public class HBoardDAO {
 			pstmt.setString(3, vo.getBoWriter());
 			pstmt.setString(4, vo.getBoTitle());
 			pstmt.setString(5, vo.getBoContent());
-
+			pstmt.setString(6, vo.getImg());
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -93,8 +93,9 @@ public class HBoardDAO {
 			String boContent = rs.getString("boContent");
 			int boHit = rs.getInt("boHit");
 			Timestamp boRegdate = rs.getTimestamp("boRegdate");
+			String img = rs.getString("img");
 			
-			HBoardVO vo = new HBoardVO(boardNum, memId, hNo, boWriter, boTitle, boContent, boHit, boRegdate);
+			HBoardVO vo = new HBoardVO(boardNum, memId, hNo, boWriter, boTitle, boContent, boHit, boRegdate,img);
 			
 			list.add(vo);
 			
@@ -141,8 +142,9 @@ public class HBoardDAO {
 				String boContent = rs.getString("boContent");
 				int boHit = rs.getInt("boHit");
 				Timestamp boRegdate = rs.getTimestamp("boRegdate");
+				String img = rs.getString("img");
 			
-				vo = new HBoardVO(boardNum2, null, 0, boWriter, boTitle, boContent, boHit, boRegdate);
+				vo = new HBoardVO(boardNum2, null, 0, boWriter, boTitle, boContent, boHit, boRegdate,img);
 			
 			}
 		} catch (Exception e) {

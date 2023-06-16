@@ -30,6 +30,10 @@
 			<td colspan="3">${vo.boTitle }</td>
 		</tr>
 		<tr>
+			<td width="20%">사진</td>
+			<td colspan="3"> <img style="width: 100%;" src="<%=request.getContextPath() %>/img/${vo.img}"> </td>
+		</tr>
+		<tr>
 			<td width="20%">글내용</td>
 			<td colspan="3" height="120px">${vo.boContent }</td>
 		</tr>
