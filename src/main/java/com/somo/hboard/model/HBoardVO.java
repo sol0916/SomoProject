@@ -12,6 +12,7 @@ public class HBoardVO {
 	private String boContent; // 내용
 	private int boHit;
 	private Timestamp boRegdate; 
+	private String img;
 	
 	//생성자 2개
 	public HBoardVO() {
@@ -30,8 +31,31 @@ public class HBoardVO {
 		this.boHit = boHit;
 		this.boRegdate = boRegdate;
 	}
-
 	
+	
+	
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
+	public HBoardVO(int boardNum, String memId, int hNo, String boWriter, String boTitle, String boContent, int boHit,
+			Timestamp boRegdate, String img) {
+		super();
+		this.boardNum = boardNum;
+		this.memId = memId;
+		this.hNo = hNo;
+		this.boWriter = boWriter;
+		this.boTitle = boTitle;
+		this.boContent = boContent;
+		this.boHit = boHit;
+		this.boRegdate = boRegdate;
+		this.img = img;
+	}
+
 	//getter,setter
 	
 	public int getBoardNum() {
